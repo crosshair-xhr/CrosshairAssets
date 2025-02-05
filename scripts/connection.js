@@ -1,9 +1,12 @@
-const sleep = ms => new Promise(r => setTimeout(r, ms));
 const print = console.log;
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 async function main() {
     while (true) {
-        await sleep(100);
+        await sleep(10000);
 
         try {
             const result = await fetch("http://127.0.0.1:5304");
