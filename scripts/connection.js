@@ -6,7 +6,7 @@ async function main() {
 
         var endpoint = `http://127.0.0.1:${PORT}/api/status`
 
-        const result = await fetch();
+        const result = await fetch(endpoint);
         print("Recieved status, Online...");
         print(status)
     }
