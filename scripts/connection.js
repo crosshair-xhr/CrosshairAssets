@@ -1,7 +1,5 @@
-const PORT = 8890;
-
 async function main() {
-    const status_endpoint = `http://127.0.0.1:${PORT}/api/status`
+    const status_endpoint = `${bridge}/api/status`
 
     while (true) {
         await sleep(1000);
