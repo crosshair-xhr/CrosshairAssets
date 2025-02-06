@@ -6,4 +6,4 @@ function sleep(ms) {
 }
 
 // crosshair
-var status = "Offline";
+var connection_status = "offline";
