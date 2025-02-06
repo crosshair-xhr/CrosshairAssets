@@ -11,7 +11,7 @@ async function main() {
             print("Recieved status, Online...");
             print(status)
         } catch (error) {
-            alert("");
+            alert("error");
         }
     }
 }
