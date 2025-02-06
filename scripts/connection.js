@@ -1,18 +1,17 @@
-const print = console.log;
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+const PORT = 8890;
 
 async function main() {
     while (true) {
-        await sleep(10000);
+        await sleep(1000);
 
         try {
-            const result = await fetch("http://127.0.0.1:5304");
-            print(result);
+            endpoint = `http://127.0.0.1:${PORT}/api/status`
+
+            const result = await fetch();
+            print("Recieved status, Online...");
+            print(status)
         } catch (error) {
-            print(error);
+            alert("");
         }
     }
 }
