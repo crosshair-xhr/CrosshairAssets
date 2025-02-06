@@ -19,7 +19,7 @@ async function main() {
         document.getElementById("status").textContent = connection_status.toUpperCase()
 
         if (connection_status == "offline") {
-            document.getElementById("launch-btn").style.backgroundColor = "#eeeeee"
+            document.getElementById("launch-btn").style.backgroundColor = "#cccccc"
         } else {
             document.getElementById("launch-btn").style.backgroundColor = "#ffffff"
         }
