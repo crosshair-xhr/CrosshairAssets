@@ -6,4 +6,7 @@ function sleep(ms) {
 }
 
 // crosshair
+const PORT = 8890;
+const bridge = `http://127.0.0.1:${PORT}`
+
 var connection_status = "offline";
