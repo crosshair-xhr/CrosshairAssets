@@ -1,7 +1,8 @@
 async function main() {
     const status_endpoint = `${bridge}/api/status`
-    const status_text = await waitForElement("#status")
-    const launch_button = await waitForElement("#launch-btn")
+    const status_text = await waitForElement("status")
+    const launch_button = await waitForElement("launch-btn")
+    const version = await waitForElement("version")
 
     while (true) {
         await sleep(1000);
@@ -11,7 +12,10 @@ async function main() {
 
         try {
             var result = await fetch(status_endpoint);
-            connection_status = "online"
+
+            if (result == "online") {
+                connection_status = "online"
+            }
         } catch {
             connection_status = "offline"
         } finally {
