@@ -5,7 +5,7 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function waitForElement(id, timeout = 5000) {
+function waitForElement(id, timeout = 100) {
     var element = document.getElementById(id);
 
     while (element == null) {
