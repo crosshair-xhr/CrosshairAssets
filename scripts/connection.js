@@ -1,37 +1,24 @@
-async function main() {
-    const status_endpoint = `${bridge}/api/status`
-    const status_text = await waitForElement("status")
-    const launch_button = await waitForElement("launch-btn")
-    const version = await waitForElement("version")
+// localization
+const print = console.log;
 
-    while (true) {
-        await sleep(1000);
-
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 3000);
-
-        try {
-            var result = await fetch(status_endpoint);
-
-            if (result == "online") {
-                connection_status = "online"
-            }
-        } catch {
-            connection_status = "offline"
-        } finally {
-            clearTimeout(timeoutId)
-        }
-
-        status_text.textContent = connection_status.toUpperCase()
-
-        if (connection_status == "offline") {
-            launch_button.style.backgroundColor = "#cccccc"
-            launch_button.style.opacity = "0.5"
-        } else {
-            launch_button.style.backgroundColor = "#ffffff"
-            launch_button.style.opacity = "1"
-        }
-    }
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-main();
+function waitForElement(id, timeout = 5000) {
+    var element = document.getElementById(id);
+
+    while (element == null) {
+        element = document.getElementById(id)
+        sleep(10)
+    }
+
+    return element
+}
+
+
+// crosshair
+const PORT = 8895;
+const bridge = `http://127.0.0.1:${PORT}`
+
+var connection_status = "offline";
