@@ -1,7 +1,7 @@
 async function main() {
     const status_endpoint = `${bridge}/api/status`
-    const status_text = document.getElementById("status")
-    const launch_button = document.getElementById("launch-btn")
+    const status_text = await waitForElement("#status")
+    const launch_button = await waitForElement("#launch-btn")
 
     while (true) {
         await sleep(1000);
@@ -21,11 +21,11 @@ async function main() {
         status_text.textContent = connection_status.toUpperCase()
 
         if (connection_status == "offline") {
-            status_text.style.backgroundColor = "#cccccc"
-            status_text.style.opacity = "0.5"
+            launch_button.style.backgroundColor = "#cccccc"
+            launch_button.style.opacity = "0.5"
         } else {
-            status_text.style.backgroundColor = "#ffffff"
-            status_text.style.opacity = "1"
+            launch_button.style.backgroundColor = "#ffffff"
+            launch_button.style.opacity = "1"
         }
     }
 }
