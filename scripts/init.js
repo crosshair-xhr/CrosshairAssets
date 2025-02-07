@@ -6,26 +6,14 @@ function sleep(ms) {
 }
 
 function waitForElement(id, timeout = 5000) {
-    return new Promise((resolve, reject) => {
-        const selector = `#${id}`; // Convert ID to a selector
-        let element = document.querySelector(selector);
-        if (element) return resolve(element);
+    var element = document.getElementById(id);
 
-        const observer = new MutationObserver(() => {
-            element = document.querySelector(selector);
-            if (element) {
-                observer.disconnect();
-                resolve(element);
-            }
-        });
+    while (element == null) {
+        element = document.getElementById(id)
+        sleep(10)
+    }
 
-        observer.observe(document.body, { childList: true, subtree: true });
-
-        setTimeout(() => {
-            observer.disconnect();
-            reject(new Error(`Element #${id} not found within timeout`));
-        }, timeout);
-    });
+    return element
 }
 
 
