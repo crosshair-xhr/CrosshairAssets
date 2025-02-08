@@ -5,15 +5,18 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function waitForElement(id, timeout = 100) {
+async function waitForElement(id, timeout = 100) {
     var element = document.getElementById(id);
+    var i = 0;
 
-    while (element == null) {
-        element = document.getElementById(id)
-        sleep(10)
+    while (element == null && i <= 10) {
+        await sleep(10);
+
+        element = document.getElementById(id);
+        i += 1;
     }
 
-    return element
+    return element;
 }
 
 
