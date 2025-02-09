@@ -3,7 +3,7 @@ const print = console.log;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
+};
 
 async function waitForElement(id, timeout = 100) {
     var element = document.getElementById(id);
@@ -14,13 +14,13 @@ async function waitForElement(id, timeout = 100) {
 
         element = document.getElementById(id);
         i += 1;
-    }
+    };
 
     return element;
-}
+};
 
 // crosshair
 const PORT = 8890;
-const BRIDGE = `http://127.0.0.1:${PORT}`
+const BRIDGE = `http://127.0.0.1:${PORT}`;
 
 var connection_status = "offline";
