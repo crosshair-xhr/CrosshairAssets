@@ -1,5 +1,4 @@
 async function main() {
-    const status_endpoint = `${BRIDGE}/api/status`;
     const status_text = await waitForElement("status");
     const launch_button = await waitForElement("launch-btn");
     const version = await waitForElement("version");
@@ -11,8 +10,7 @@ async function main() {
         const timeoutId = setTimeout(() => controller.abort(), 3000);
 
         try {
-            await fetch(status_endpoint);
-            
+            version.textContent = await fetch(`${BRIDGE}/api/status`);
             connection_status = "online";
         } catch {
             connection_status = "offline";
