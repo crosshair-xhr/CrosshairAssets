@@ -20,7 +20,7 @@ async function waitForElement(id, timeout = 100) {
 }
 
 // crosshair
-const PORT = 8895;
+const PORT = 8890;
 const BRIDGE = `http://127.0.0.1:${PORT}`
 
 var connection_status = "offline";
