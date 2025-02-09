@@ -13,6 +13,7 @@ async function main() {
             version.textContent = (await fetch(`${BRIDGE}/api/status`)).text();
             connection_status = "online";
         } catch {
+            version.textContent = "ERROR"
             connection_status = "offline";
         } finally {
             clearTimeout(timeoutId);
