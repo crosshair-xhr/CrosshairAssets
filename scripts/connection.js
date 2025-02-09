@@ -1,8 +1,8 @@
 async function main() {
-    const status_endpoint = `${BRIDGE}/api/status`
-    const status_text = await waitForElement("status")
-    const launch_button = await waitForElement("launch-btn")
-    const version = await waitForElement("version")
+    const status_endpoint = `${BRIDGE}/api/status`;
+    const status_text = await waitForElement("status");
+    const launch_button = await waitForElement("launch-btn");
+    const version = await waitForElement("version");
 
     while (true) {
         await sleep(1000);
@@ -12,23 +12,24 @@ async function main() {
 
         try {
             await fetch(status_endpoint);
-            connection_status = "online"
+            
+            connection_status = "online";
         } catch {
-            connection_status = "offline"
+            connection_status = "offline";
         } finally {
-            clearTimeout(timeoutId)
-        }
+            clearTimeout(timeoutId);
+        };
 
-        status_text.textContent = connection_status.toUpperCase()
+        status_text.textContent = connection_status.toUpperCase();
 
         if (connection_status == "offline") {
-            launch_button.style.backgroundColor = "#cccccc"
-            launch_button.style.opacity = "0.5"
+            launch_button.style.backgroundColor = "#cccccc";
+            launch_button.style.opacity = "0.5";
         } else {
-            launch_button.style.backgroundColor = "#ffffff"
-            launch_button.style.opacity = "1"
-        }
-    }
+            launch_button.style.backgroundColor = "#ffffff";
+            launch_button.style.opacity = "1";
+        };
+    };
 }
 
 main();
