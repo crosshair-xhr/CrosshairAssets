@@ -10,7 +10,7 @@ async function main() {
         const timeoutId = setTimeout(() => controller.abort(), 3000);
 
         try {
-            version.textContent = await fetch(`${BRIDGE}/api/status`);
+            version.textContent = (await fetch(`${BRIDGE}/api/status`)).text();
             connection_status = "online";
         } catch {
             connection_status = "offline";
