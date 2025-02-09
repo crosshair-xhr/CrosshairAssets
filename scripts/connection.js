@@ -1,7 +1,6 @@
 async function main() {
     const status_text = await waitForElement("status");
     const launch_button = await waitForElement("launch-btn");
-    const version = await waitForElement("version");
 
     while (true) {
         await sleep(1000);
@@ -10,10 +9,8 @@ async function main() {
         const timeoutId = setTimeout(() => controller.abort(), 3000);
 
         try {
-            version.textContent = (await fetch(`${BRIDGE}/api/status`)).text();
             connection_status = "online";
         } catch {
-            version.textContent = "ERROR"
             connection_status = "offline";
         } finally {
             clearTimeout(timeoutId);
