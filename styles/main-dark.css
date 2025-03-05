@@ -50,6 +50,12 @@ button {
     cursor: default;
 }
 
+.launch-button-btn {
+    color: rgb(89, 65, 72);
+    background-color: rgb(65, 76, 65);
+    color-scheme: rgb(76, 69, 76);
+}
+
 *:focus {
     outline: none;
 }
